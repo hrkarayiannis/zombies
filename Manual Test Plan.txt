@@ -1,0 +1,112 @@
+===== MANUAL TEST PLAN =====
+
+Manual test plan for "I ALSO MADE A GAME WITH ZOMBIES IN IT" by Haralabos Karayiannis.
+
+I.		Player Interaction
+II.		Zombie Interaction
+III.	Powerup Interaction
+IV. 	Projectile Interaction
+V.		Extras
+
+* Assume all tests should occur while the game is running *
+* Some tests may be difficult to complete due to zombies *
+
+
+=== I. Player Interaction ===
+Player should originally spawn in the center of the play area.
+Check that the score is displayed in the center at the top and is 0 initially.
+
+Check that ESDF allows the player to move around.
+Make sure that the player is not able to leave the play area screen by moving.
+
+Check that clicking (and holding) either mouse button fires basic projectiles in the direction of the mouse cursor.
+
+=== II. Zombie Interaction ===
+Zombies should periodically spawn at a random location around the player.
+	- Zombies should never spawn directly on the player.
+	- Zombies are allowed to spawn and move out of bounds.
+	
+Check that the BasicZombies, BigZombies, Slimes move towards the player while the player is alive.
+FastFaces and EvilFaces wander randomly in the play area at all times.
+The WhiteFaces should trail behind their parent FastFace.
+
+When a Zombie makes contact with the Player:
+	The player should disappear for a short time from the screen and is considered dead during this time.
+	All BasicZombies, BigZombies, Slimes should reverse their movement direction.
+	A message appears over the location where the player died.
+
+Slimes:
+	When a parent slime dies it should split into several smaller slime enemies.
+		
+=== III. Powerup Interaction ===
+A powerup should spawn periodically at a random location in the play area and appear stationary.
+
+Check that the appropriate effects occur when the Player makes contact with each of the following:
+
+Lightning Bolt Icon (SpeedBoost):
+	The player is able to move more quickly for a short period of time.
+	After the time expires the player's movement speed returns to normal.
+
+Purple Diamond Icon (Trishot):
+	If Trishot was not active:
+		The player now fires 3 larger projectiles instead of the basic projectile for up to 75 shots.
+		One projectile directly approaches the mouse cursor. The other two are offset by angles.
+		The player goes back to shooting basic projectiles after a number of shots.
+	If Trishot was active:
+		The player is able to fire even more shots of this kind before returning to basic projectiles.
+
+Yellow Rectangle Icon (Rapidfire):
+	If Rapidfire was not active:
+		The player now fires small projectiles at a very high rate.
+		Projectiles are fired at the mouse cursor, but may be off by small angles.
+		The player goes back to shooting basic projectiles after a number of shots.
+	If Trishot was active:
+		The player is able to fire even more shots of this kind before returning to basic projectiles.
+
+Purple Square Icon (Shield):
+	A shield appears and remains around the player for a short time that instantly kills zombies.
+
+Fireball Icon (Flamethrower):
+	If Flamethrower was not active:
+		The player now fires small projectiles at a very high rate.
+		Projectiles are fired at the mouse cursor in a conal spray, but only in a short range.
+	If Flamethrower was active:
+		The player is able to fire even more shots of this kind before returning to basic projectiles.
+Red Cross (Plusone):
+	The player gains a life which should be reflected in the HUD
+	
+=== IV. Projectile Interaction ===
+	All projectiles travel in a direction until colliding with a Zombie.
+
+	A Zombie must be hit with projectiles to be defeated. 
+	Basic projectiles require the most number of hits to defeat zombies.
+	Basic projectiles are removed from the game after hitting a zombie once.
+	
+	Rapidfire projectiles should damage Zombies the same amount as basic projectiles and
+	are removed from the game after hitting a zombie once.
+		
+	Trishot projectiles (Tribullets) require slightly fewer hits than basic projectiles to defeat
+	BasicZombies and are removed from the game after being hit a few times. Other types may require
+	more or less hits to kill.
+	
+	Flame projectiles (WRECK) do a lot of damage to zombies, but burn out after a short range, 
+	and leave the play area. Flames are shot in a conal spray.
+		
+=== V. Extras ===
+Pausing:
+	Pausing means that the game is in a state where the player, zombies, and projectiles are unable 
+	to perform any movement; player is unable to fire projectiles; zombies and powerups cease to spawn; 
+	
+	Pressing the Space Bar should Pause the game. 
+	While paused a message should appear to indicate that the game has been paused.
+	Pressing the Space bar again will cause the game to continue as usual.
+
+Pressing the ESCAPE key should close the game regardless of if it is Paused or not.
+
+Scoring:
+	When a Zombie is defeated the score shown at the top of the screen should increase.
+Special Ammo:
+	Special ammo count along with an icon representing its type should appear and change 
+	according to shooting, picking up other powerups, and dying.
+Lives:
+	The number of lives a player has should be shown by hearts. Running out of hearts means the game is over.
